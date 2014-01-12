@@ -1,0 +1,30 @@
+{
+    "versionLabel": "1.2",
+    "uuid": "53abf106-106c-4e58-8d2e-c62d633c9d85",
+    "appKeys": {},
+    "longName": "Randomizer",
+    "versionCode": 1,
+    "capabilities": [
+        ""
+    ],
+    "shortName": "Randomizer",
+    "companyName": "lonsdaleite",
+    "watchapp": {
+        "watchface": false
+    },
+    "resources": {
+        "media": [
+            {
+                "menuIcon": true,
+                "type": "png",
+                "name": "RAND_ICON",
+                "file": "images/icon.png"
+            },
+            {
+                "type": "png",
+                "name": "IMAGE_NUM_1",
+                "file": "images/img1.png"
+            }
+        ]
+    }
+}
