@@ -61,11 +61,18 @@ void btn_up_handler(ClickRecognizerRef recognizer, void *context) {
 }
 
 void up_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
-	numClicks++;
-	if (numClicks<21) num_gen++; else num_gen+=10;
-	//intost(num_gen,text_layer2+12);
-	snprintf(text_layer2+12,13+MAX_NUM_LENGTH,"%d",num_gen);
-	text_layer_set_text(layer2, text_layer2);
+	if (num_gen<9999) {
+		numClicks++;
+		if (numClicks<21) num_gen++; else if (numClicks<38) {num_gen+=10; num_gen-=num_gen%10;} else 
+			{num_gen+=100; num_gen-=num_gen%100;}
+		
+		if (num_gen>9999) num_gen=9999;
+		
+		//intost(num_gen,text_layer2+12);
+		snprintf(text_layer2+12,13+MAX_NUM_LENGTH,"%d",num_gen);
+		
+		text_layer_set_text(layer2, text_layer2);
+	}
 }
 
 
@@ -75,7 +82,9 @@ void down_single_click_handler(ClickRecognizerRef recognizer, Window *window) {
 
 	if (num_gen>1) {
 		numClicks++;
-		if (numClicks<21) num_gen--; else num_gen-=10;
+		if (numClicks<21) num_gen--; else if (numClicks<38) {num_gen-=10; num_gen-=num_gen%10;} else 
+			{num_gen-=100; num_gen-=num_gen%100;}
+		
 		if (num_gen<=0) num_gen=1;
 		//intost(num_gen,text_layer2+12);
 		snprintf(text_layer2+12,13+MAX_NUM_LENGTH,"%d",num_gen);
